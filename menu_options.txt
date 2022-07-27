@@ -1,0 +1,14 @@
+
+
+MENU OPTIONS:
+
+
+1.
+2.
+3.
+4. 
+5. Add user to service
+6. Email Database to HR
+
+
+0. to exit program
