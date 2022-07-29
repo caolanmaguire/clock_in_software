@@ -1,8 +1,20 @@
 import os
+import sys
 import pwinput
+import time
+from datetime import datetime
+
+from program_functions import list_users
+# sys.path.insert(1, 'program_functions/facial-recognition/src')
+
+# import faces
+
+
+now = datetime.now()
+
+program_start_time = now.strftime("%H:%M:%S-%d/%m/%y")
 
 os.system("CLS")
-
 
 import logo
 
@@ -16,8 +28,6 @@ for x in user_db:
         user_accounts.append([parsed_line[0],parsed_line[1].replace('\n', '')])
     except:
         user_accounts.append([parsed_line[0],parsed_line[1]])
-
-
 
 while True:
     username = input('Please enter your username below:');
@@ -35,7 +45,7 @@ for x in user_accounts:
 
     if x[0] == username:
         if x[1] == password:
-            print('logged in as : ' + username)
+            print('logged in as : ' + username + ' at : ' + program_start_time)
             break;
         else:
             print('Password is wrong')
@@ -48,13 +58,20 @@ dialog_response = input('\n\nPlease choose from the above menu which function yo
 
 while True:
     if dialog_response == '1':
+        from program_functions import faces
         print('1')
 
     if dialog_response == '2':
-        print('2')
+        user_db = open("database.csv", "r")
+        
+        print('\t\t\t* * * DATABASE RESULTS * * * ')
+        print('\t\tFIRST NAME | DOB | COMPANY ID | CLOCKED TIME')
+
+        for x in user_db:
+            print('\t\t' + x.replace(',',' | '))
 
     if dialog_response == '3':
-        print('3')
+        list_all_users()
 
     if dialog_response == '4':
         print('4')
@@ -63,16 +80,19 @@ while True:
         from program_functions import add_user
 
     if dialog_response == '6':
-        from program_functions import email
+        import smtplib
+        import imghdr
+        from email.message import EmailMessage
+        from datetime import date
+        import os
+        from program_functions import send_email
 
-    
     if dialog_response == '0':
         break;
     
-    os.system("CLS")
+    # os.system("CLS")
     menu_options = open("menu_options.txt", "r")
     print(menu_options.read())
     dialog_response = input('\n\nPlease choose from the above menu which function you would like to run : ')
-
 
 print('Thank you for using Smart Clocker')

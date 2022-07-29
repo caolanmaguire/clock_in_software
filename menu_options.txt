@@ -1,12 +1,13 @@
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 MENU OPTIONS:
 
 
-1.
-2.
-3.
-4. 
+1. Start Clock in Program
+2. View Database
+3. List Users
+4. Delete / Remove Users
 5. Add user to service
 6. Email Database to HR
 
