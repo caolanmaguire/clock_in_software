@@ -1,7 +1,7 @@
 <img src="https://komconsultants.com/wp-content/uploads/2015/04/ATU-Logo-wide.jpg" />
 <br>
 
-# Facial recognition clock in applicaiton <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px" height="30px" />
+# Facial recognition clock in application <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px" height="30px" />
 
 ## This is my repeat project for my college course module - project management - I will upload my project diary when the project is fully finished.
 
