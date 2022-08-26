@@ -19,7 +19,7 @@ with open("pickles/face-labels.pickle", 'rb') as f:
 
 cap = cv2.VideoCapture(0)
 
-clock_in_record = 'Clock in record:\n'
+clock_in_record = '\nClock in record: ' + str(datetime.today().strftime('%Y-%m-%d')) + '\n'
 current_attention = {}
 
 while(True):
@@ -43,11 +43,11 @@ while(True):
                  minutes_since_last = int(right_now.split(' ')[1]) - int(current_attention[name].split(' ')[1])
                  if minutes_since_last > 1:
                     current_attention[name] = right_now
-                    clock_in_record = clock_in_record + '\n' + 'Employee:' + name + ', Time:' + right_now
+                    clock_in_record = clock_in_record + '\n' + 'Employee then seen at :' + name + ', Time:' + right_now
             else:
                  #print('new face')
                  current_attention[name] = right_now
-                 #clock_in_record = clock_in_record + '\n' + 'Employee:' + name + ', Time:' + right_now
+                 clock_in_record = clock_in_record + '\n' + 'Employee clocked in at :' + name + ', Time:' + right_now
 
         img_item = "7.png"
         cv2.imwrite(img_item, roi_color)
@@ -62,6 +62,9 @@ while(True):
     cv2.imshow('frame',frame)
     if cv2.waitKey(20) & 0xFF == ord('q'):
         print(clock_in_record)
+        database = open("database.csv", "a")  # append mode
+        database.write(clock_in_record)
+        database.close()
         break
 
 # When all check in frame done show capture
