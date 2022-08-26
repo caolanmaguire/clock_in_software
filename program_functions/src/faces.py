@@ -40,15 +40,14 @@ while(True):
             cv2.putText(frame, name + ' ' + datetime.now().strftime("%H: %M : %S"), (x,y), font, 1, color, stroke, cv2.LINE_AA)
             right_now = str(datetime.now().strftime("%H: %M")) + ''
             if name in current_attention:
-                 #print('present')
-                 #print('Last time I saw you was : ' + current_attention[name])
                  minutes_since_last = int(right_now.split(' ')[1]) - int(current_attention[name].split(' ')[1])
-                 print('minutes since I have seen you : ' + str(minutes_since_last))
-                 if int(right_now.split(' ')[1]) > 1:
+                 if minutes_since_last > 1:
                     current_attention[name] = right_now
+                    clock_in_record = clock_in_record + '\n' + 'Employee:' + name + ', Time:' + right_now
             else:
                  #print('new face')
                  current_attention[name] = right_now
+                 #clock_in_record = clock_in_record + '\n' + 'Employee:' + name + ', Time:' + right_now
 
         img_item = "7.png"
         cv2.imwrite(img_item, roi_color)
@@ -59,8 +58,10 @@ while(True):
         end_cord_y = y + h
         cv2.rectangle(frame, (x, y), (end_cord_x, end_cord_y), color, stroke)
         # Display the resulting frame
+    
     cv2.imshow('frame',frame)
     if cv2.waitKey(20) & 0xFF == ord('q'):
+        print(clock_in_record)
         break
 
 # When all check in frame done show capture
