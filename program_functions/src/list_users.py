@@ -1,4 +1,3 @@
-
 def list_all_users():
     print('*** List Users ***\n')
         

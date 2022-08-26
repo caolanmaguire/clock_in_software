@@ -4,7 +4,7 @@ import pwinput
 import time
 from datetime import datetime
 
-from program_functions import list_users
+from list_users import list_all_users
 # sys.path.insert(1, 'program_functions/facial-recognition/src')
 
 # import faces
@@ -49,6 +49,7 @@ for x in user_accounts:
             break;
         else:
             print('Password is wrong')
+            exit()
 
 
 menu_options = open("menu_options.txt", "r")
@@ -58,8 +59,12 @@ dialog_response = input('\n\nPlease choose from the above menu which function yo
 
 while True:
     if dialog_response == '1':
-        from program_functions import faces
+        #from program_functions import faces
         print('1')
+        # os.system('cd program_functions/Facial-Detection/src/')
+        # os.system('python faces.py')
+        #cls
+        exec(open('faces.py').read())
 
     if dialog_response == '2':
         user_db = open("database.csv", "r")
@@ -74,10 +79,10 @@ while True:
         list_all_users()
 
     if dialog_response == '4':
-        print('4')
+        import remove_user
 
     if dialog_response == '5':
-        from program_functions import add_user
+        import add_user
 
     if dialog_response == '6':
         import smtplib
