@@ -58,7 +58,10 @@ dialog_response = input('\n\nPlease choose from the above menu which function yo
 
 while True:
     if dialog_response == '1':
-        from program_functions import faces
+        #from program_functions import faces
+        os.system('cd program_functions/Facial-Detection/src/')
+        os.system('faces.py')
+        #exec(open('/program_functions/Facial-Detection/src/faces.py').read())
         print('1')
 
     if dialog_response == '2':
