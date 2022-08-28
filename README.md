@@ -5,6 +5,7 @@
 
 ## This is my repeat project for my college course module - project management - I will upload my project diary when the project is fully finished.
 
+``` pip install opencv-contrib-python ```
 ##This application is designed to use opencv and training data to recognize employees of an organization via a digital camera and log when the computer recognizes them - this data is then used to predict when the employee came into work
 
 <br>
