@@ -10,6 +10,10 @@
 
 <br>
 
+1. Install python on your machine at https://apps.microsoft.com/store/detail/python-310/9PJPW5LDXLZ5 
+2. Open command prompt and install opencv - contrib - ``` pip install opencv-contrib-python ```
+3. Install pillow - ``` pip install pillow ```
+
 
 ## 🔧 Technologies & Tools:
 
