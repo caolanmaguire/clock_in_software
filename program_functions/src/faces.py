@@ -56,10 +56,22 @@ while(True):
         stroke = 2
         end_cord_x = x + w
         end_cord_y = y + h
-        cv2.rectangle(frame, (x, y), (end_cord_x, end_cord_y), color, stroke)
+        # cv2.rectangle(frame, (x, y), (end_cord_x, end_cord_y), color, cv2.FILLED)
+        
+        shapes = np.zeros_like(frame, np.uint8)
+
+        cv2.rectangle(shapes, (x, y), (end_cord_x, end_cord_y), (255, 255, 255), cv2.FILLED)
+
+
+
         # Display the resulting frame
-    
-    cv2.imshow('frame',frame)
+        out = frame.copy()
+    alpha = 0.5
+    mask = shapes.astype(bool)
+    out[mask] = cv2.addWeighted(frame, alpha, shapes, 1 - alpha, 0)[mask]
+
+    cv2.imshow('frame2',out)
+    # cv2.imshow('frame',frame)
     if cv2.waitKey(20) & 0xFF == ord('q'):
         print(clock_in_record)
         database = open("database.csv", "a")  # append mode
